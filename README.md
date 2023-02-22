@@ -56,7 +56,7 @@ output "kubeconfig" {
 
 |       Name       |            Description           |  Type  |     Default     | Required |
 |:----------------:|:--------------------------------:|:------:|:---------------:|:--------:|
-| GOOGLE_PROJECT   | GCP project name                 | string | "k8s-k3s"       |    no    |
+| GOOGLE_PROJECT   | GCP project name                 | string | no              |    no    |
 | GOOGLE_REGION    | GCP region name                  | string | "us-central1-c" |    no    |
 | GKE_MACHINE_TYPE | GKE node machine type            | string | "g1-small"      |    no    |
 | GKE_NUM_NODES    | Number of nodes in the node pool | number | 2               |    no    |
