@@ -7,9 +7,29 @@ provider "google" {
 resource "google_container_cluster" "this" {
   name     = var.GKE_CLUSTER_NAME
   location = var.GOOGLE_REGION
+#  network    = "vault-internal"
+#  subnetwork = "vault-internal-sub"
 
   initial_node_count       = 1
   remove_default_node_pool = true
+
+    workload_identity_config {
+    workload_pool = "${var.GOOGLE_PROJECT}.svc.id.goog"
+  }
+  node_config {
+        workload_metadata_config {
+      mode = "GKE_METADATA"
+    }
+  }
+#    private_cluster_config {
+#    enable_private_endpoint = false
+#    enable_private_nodes    = true
+#    master_ipv4_cidr_block  = "172.16.0.16/28"
+#  }
+#    ip_allocation_policy {
+#    cluster_secondary_range_name  = "cluster-pods"
+#    services_secondary_range_name = "cluster-services"
+#  }
 }
 
 resource "google_container_node_pool" "this" {
@@ -40,3 +60,4 @@ resource "local_file" "kubeconfig" {
   filename = "${path.module}/kubeconfig"
   file_permission = "0400"
 }
+
