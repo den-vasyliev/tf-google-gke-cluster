@@ -19,6 +19,7 @@ resource "google_container_cluster" "this" {
       mode = "GKE_METADATA"
     }
   }
+}
 
 resource "google_container_node_pool" "this" {
   name       = var.GKE_POOL_NAME
