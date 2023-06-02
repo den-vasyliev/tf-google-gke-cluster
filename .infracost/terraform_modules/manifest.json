@@ -1,0 +1,1 @@
+{"Path":".","Version":"2.0","Modules":[{"Key":"gke_auth","Source":"registry.terraform.io/terraform-google-modules/kubernetes-engine/google//modules/auth","Version":"26.1.1","Dir":".infracost/terraform_modules/f54a78b8e244235e976be7bcbfaf301b/modules/auth"}]}
