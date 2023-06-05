@@ -5,19 +5,19 @@ variable "GOOGLE_PROJECT" {
 
 variable "GOOGLE_REGION" {
   type        = string
-  default     = "us-central1-c"
+  default     = "europe-west1" # "us-central1-c" # "europe-west1"
   description = "GCP region to use"
 }
 
 variable "GKE_MACHINE_TYPE" {
   type        = string
-  default     = "g1-small"
+  default     = "f1-micro" # "g1-small" # "e2-small"
   description = "Machine type"
 }
 
 variable "GKE_NUM_NODES" {
   type        = number
-  default     = 2
+  default     = 3 #12
   description = "GKE nodes number"
 }
 
