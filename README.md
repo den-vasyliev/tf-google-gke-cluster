@@ -1,3 +1,5 @@
+[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cb47d17f-446d-4a9a-9d83-2819f55066c9/repos/85045476-69e5-49d5-ab99-bc4dde37481c/branch/4bdfaa5d-1fdd-446a-8c1a-c36d1abf722d/vanelin%252Ftf-google-gke-cluster)](https://dashboard.infracost.io/org/vano3231/repos/85045476-69e5-49d5-ab99-bc4dde37481c?settings#config-file-editor)
+
 # Google Kubernetes Engine (GKE) Cluster Terraform module
 
 This module deploys a Kubernetes cluster on Google Cloud Platform (GCP) using the Google Kubernetes Engine (GKE) service. The GKE cluster is provisioned with a single node pool, and it comes with a generated Kubernetes configuration file (`kubeconfig`) that is stored locally.
@@ -58,8 +60,8 @@ output "kubeconfig" {
 |:----------------:|:--------------------------------:|:------:|:---------------:|:--------:|
 | GOOGLE_PROJECT   | GCP project name                 | string | no              |    no    |
 | GOOGLE_REGION    | GCP region name                  | string | "us-central1-c" |    no    |
-| GKE_MACHINE_TYPE | GKE node machine type            | string | "g1-small"      |    no    |
-| GKE_NUM_NODES    | Number of nodes in the node pool | number | 2               |    no    |
+| GKE_MACHINE_TYPE | GKE node machine type            | string | "e2-small"      |    no    |
+| GKE_NUM_NODES    | Number of nodes in the node pool | number | 3               |    no    |
 
 ## Outputs
 kubeconfig - Generated Kubernetes configuration file
