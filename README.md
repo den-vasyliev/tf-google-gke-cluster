@@ -1,3 +1,5 @@
+[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/db8ffeab-24f5-4fd5-a5b1-57c5e04004e1/repos/02f0db25-9b53-4b74-8aa3-87fbe1399ec5/branch/926f5282-6897-4387-9919-90fd9fc0ce22/Evgeniyme%252Ftf-google-gke-cluster)](https://dashboard.infracost.io/org/haltedaccount/repos/02f0db25-9b53-4b74-8aa3-87fbe1399ec5?tab=settings#config-file-editor)
+
 # Google Kubernetes Engine (GKE) Cluster Terraform module
 
 This module deploys a Kubernetes cluster on Google Cloud Platform (GCP) using the Google Kubernetes Engine (GKE) service. The GKE cluster is provisioned with a single node pool, and it comes with a generated Kubernetes configuration file (`kubeconfig`) that is stored locally.
