@@ -1,6 +1,6 @@
 variable "GOOGLE_PROJECT" {
-  type        = string
-  description = "GCP project name"
+    description = "The ID of the Google Cloud project"
+    default     = "eastern-concord-298223"  # replace this with your actual project ID
 }
 
 variable "GOOGLE_REGION" {
@@ -17,7 +17,7 @@ variable "GKE_MACHINE_TYPE" {
 
 variable "GKE_NUM_NODES" {
   type        = number
-  default     = 2
+  default     = 4
   description = "GKE nodes number"
 }
 
