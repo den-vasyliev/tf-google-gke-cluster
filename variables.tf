@@ -1,5 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
+  default     = "my-gcp-project"
   description = "GCP project name"
 }
 
