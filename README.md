@@ -71,3 +71,5 @@ hashicorp/google 4.52.0
 
 ## License
 This module is licensed under the MIT License. See the LICENSE file for details.
+
+[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/8cf09eaf-8e9a-478b-89ae-fe701870135b/repos/dc30a3c6-a3ca-428b-accb-eeafdfeae2ca/branch/060cc73f-9fe6-4b9b-9362-2547ee3a421e/SVestor%252Ftf-google-gke-cluster)](https://dashboard.infracost.io/org/sasvestor/repos/dc30a3c6-a3ca-428b-accb-eeafdfeae2ca?tab=settings)
