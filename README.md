@@ -71,3 +71,5 @@ hashicorp/google 4.52.0
 
 ## License
 This module is licensed under the MIT License. See the LICENSE file for details.
+
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fairst4r%2Ftf-google-gke-cluster&cloudshell_git_branch=main)
