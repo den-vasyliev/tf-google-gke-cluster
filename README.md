@@ -13,7 +13,7 @@ provider "google" {
 
 resource "google_container_cluster" "this" {
   name     = var.GKE_CLUSTER_NAME
-  location = var.GOOGLE_REGION
+  location = var.GOOGLE_LOCATION
 
   initial_node_count       = 1
   remove_default_node_pool = true
@@ -39,7 +39,7 @@ module "gke_auth" {
   version              = ">= 24.0.0"
   project_id           = var.GOOGLE_PROJECT
   cluster_name         = google_container_cluster.this.name
-  location             = var.GOOGLE_REGION
+  location             = var.GOOGLE_LOCATION
 }
 
 resource "local_file" "kubeconfig" {
@@ -57,7 +57,8 @@ output "kubeconfig" {
 |       Name       |            Description           |  Type  |     Default     | Required |
 |:----------------:|:--------------------------------:|:------:|:---------------:|:--------:|
 | GOOGLE_PROJECT   | GCP project name                 | string | no              |    no    |
-| GOOGLE_REGION    | GCP region name                  | string | "us-central1-c" |    no    |
+| GOOGLE_REGION    | GCP region name                  | string | "us-central1  " |    no    |
+| GOOGLE_LOCATION  | GCP location name                | string | "us-central1-c" |    no    |
 | GKE_MACHINE_TYPE | GKE node machine type            | string | "g1-small"      |    no    |
 | GKE_NUM_NODES    | Number of nodes in the node pool | number | 2               |    no    |
 
