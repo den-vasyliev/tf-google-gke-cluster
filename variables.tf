@@ -1,6 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
-  description = "GCP project name"
+  description = "My First Project"
 }
 
 variable "GOOGLE_REGION" {
@@ -11,13 +11,13 @@ variable "GOOGLE_REGION" {
 
 variable "GKE_MACHINE_TYPE" {
   type        = string
-  default     = "g1-small"
+  default     = "c3-standard-4"  #"g1-small"
   description = "Machine type"
 }
 
 variable "GKE_NUM_NODES" {
   type        = number
-  default     = 2
+  default     = 3
   description = "GKE nodes number"
 }
 
