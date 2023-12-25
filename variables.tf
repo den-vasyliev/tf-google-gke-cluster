@@ -11,13 +11,13 @@ variable "GOOGLE_REGION" {
 
 variable "GKE_MACHINE_TYPE" {
   type        = string
-  default     = "g1-small"
+  default     = "f1-micro"
   description = "Machine type"
 }
 
 variable "GKE_NUM_NODES" {
   type        = number
-  default     = 2
+  default     = 1
   description = "GKE nodes number"
 }
 
