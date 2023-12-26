@@ -11,7 +11,7 @@ variable "GOOGLE_REGION" {
 
 variable "GKE_MACHINE_TYPE" {
   type        = string
-  default     = "f1-micro"
+  default     = "g1-small"
   description = "Machine type"
 }
 
