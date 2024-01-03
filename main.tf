@@ -26,7 +26,7 @@ resource "google_container_node_pool" "this" {
   project    = google_container_cluster.this.project
   cluster    = google_container_cluster.this.name
   location   = google_container_cluster.this.location
-  node_count = 3  # Змінено кількість вузлів до 3
+  node_count = 2  # Змінено кількість вузлів до 3
 
   node_config {
     machine_type = "e2-standard-4"  # Змінено тип машини на e2-standard-4
