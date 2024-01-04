@@ -1,6 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
-  description = "GCP project name"
+  description = "smiling-rhythm-404620"
 }
 
 variable "GOOGLE_REGION" {
