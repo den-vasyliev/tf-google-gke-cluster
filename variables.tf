@@ -1,5 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
+  default     = "gl-devops-and-kubernetes"
   description = "GCP project name"
 }
 
