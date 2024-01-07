@@ -1,5 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
+  default     = "gl-devops-and-kubernetes"
   description = "GCP project name"
 }
 
@@ -11,13 +12,13 @@ variable "GOOGLE_REGION" {
 
 variable "GKE_MACHINE_TYPE" {
   type        = string
-  default     = "g1-small"
+  default     = "e2-medium"
   description = "Machine type"
 }
 
 variable "GKE_NUM_NODES" {
   type        = number
-  default     = 2
+  default     = 5
   description = "GKE nodes number"
 }
 
