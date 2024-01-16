@@ -11,16 +11,18 @@ resource "google_container_cluster" "this" {
   initial_node_count       = 1
   remove_default_node_pool = true
 
-    workload_identity_config {
+  workload_identity_config {
     workload_pool = "${var.GOOGLE_PROJECT}.svc.id.goog"
   }
   node_config {
-        workload_metadata_config {
+    workload_metadata_config {
       mode = "GKE_METADATA"
     }
   }
 }
-
+output "kubeconfig_path" {
+  value = google_container_cluster.my_cluster.kube_config[0].output_path
+}
 resource "google_container_node_pool" "this" {
   name       = var.GKE_POOL_NAME
   project    = google_container_cluster.this.project
@@ -37,16 +39,16 @@ module "gke_auth" {
   depends_on = [
     google_container_cluster.this
   ]
-  source               = "terraform-google-modules/kubernetes-engine/google//modules/auth"
-  version              = ">= 24.0.0"
-  project_id           = var.GOOGLE_PROJECT
-  cluster_name         = google_container_cluster.this.name
-  location             = var.GOOGLE_REGION
+  source       = "terraform-google-modules/kubernetes-engine/google//modules/auth"
+  version      = ">= 24.0.0"
+  project_id   = var.GOOGLE_PROJECT
+  cluster_name = google_container_cluster.this.name
+  location     = var.GOOGLE_REGION
 }
 
 resource "local_file" "kubeconfig" {
-  content  = module.gke_auth.kubeconfig_raw
-  filename = "${path.module}/kubeconfig"
+  content         = module.gke_auth.kubeconfig_raw
+  filename        = "${path.module}/kubeconfig"
   file_permission = "0400"
 }
 
