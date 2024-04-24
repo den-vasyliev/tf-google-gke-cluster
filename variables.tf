@@ -17,18 +17,18 @@ variable "GKE_MACHINE_TYPE" {
 
 variable "GKE_NUM_NODES" {
   type        = number
-  default     = 2
+  default     = 3
   description = "GKE nodes number"
 }
 
 variable "GKE_CLUSTER_NAME" {
   type        = string
-  default     = "main"
+  default     = "dev"
   description = "GKE cluster name"
 }
 
 variable "GKE_POOL_NAME" {
   type        = string
-  default     = "main"
+  default     = "dev"
   description = "GKE pool name"
 }
