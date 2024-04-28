@@ -52,22 +52,25 @@ output "kubeconfig" {
 }
 ```
 
-## Inputs
+### Inputs
 
-|       Name       |            Description           |  Type  |     Default     | Required |
-|:----------------:|:--------------------------------:|:------:|:---------------:|:--------:|
-| GOOGLE_PROJECT   | GCP project name                 | string | no              |    no    |
-| GOOGLE_REGION    | GCP region name                  | string | "us-central1-c" |    no    |
-| GKE_MACHINE_TYPE | GKE node machine type            | string | "g1-small"      |    no    |
-| GKE_NUM_NODES    | Number of nodes in the node pool | number | 2               |    no    |
+|       Name       |           Description            |  Type  |     Default     | Required |
+| :--------------: | :------------------------------: | :----: | :-------------: | :------: |
+|  GOOGLE_PROJECT  |         GCP project name         | string |       no        |    no    |
+|  GOOGLE_REGION   |         GCP region name          | string | "us-central1-c" |    no    |
+| GKE_MACHINE_TYPE |      GKE node machine type       | string |   "g1-small"    |    no    |
+|  GKE_NUM_NODES   | Number of nodes in the node pool | number |        2        |    no    |
 
-## Outputs
+### Outputs
+
 kubeconfig - Generated Kubernetes configuration file
 
-## Requirements
+### Requirements
+
 This module requires Terraform 0.12 or later, and the following provider:
 
 hashicorp/google 4.52.0
 
-## License
+### License
+
 This module is licensed under the MIT License. See the LICENSE file for details.
