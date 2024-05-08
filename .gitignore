@@ -1,2 +1,2 @@
 .terraform
-tf-google-gke-cluster/.terraform.lock.hcl
+.terraform.lock.hcl
