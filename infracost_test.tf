@@ -37,7 +37,7 @@ resource "google_compute_instance" "my_instance" {
 resource "google_cloudfunctions_function" "my_function" {
   runtime             = "nodejs20"
   name                = "test"
-  available_memory_mb = 256
+  available_memory_mb = 512
 
   labels = {
     environment = "Prod"
