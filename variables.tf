@@ -1,5 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
+  default     = "dev-ops-prometheus"
   description = "GCP project name"
 }
 
