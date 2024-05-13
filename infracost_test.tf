@@ -1,35 +1,45 @@
-provider "aws" {
-  region = "us-east-1"
-  skip_credentials_validation = true
-  skip_requesting_account_id = true
-  access_key = "mock_access_key"
-  secret_key = "mock_secret_key"
+provider "google" {
+  region = "us-central1"
+  project = "test"
 }
 
-resource "aws_instance" "my_web_app" {
-  ami = "ami-005e54dee72cc1d00"
+resource "google_compute_instance" "my_instance" {
+  zone = "us-central1-a"
+  name = "test"
 
-  instance_type = "m3.xlarge" # <<<<<<<<<< Try changing this to m5.xlarge to compare the costs
-
-  tags = {
-    Environment = "production"
-    Service = "web-app"
+  machine_type = "n1-standard-16" # <<<<<<<<<< Try changing this to n1-standard-32 to compare the costs
+  network_interface {
+    network = "default"
+    access_config {}
   }
 
-  root_block_device {
-    volume_size = 1000 # <<<<<<<<<< Try adding volume_type="gp3" to compare costs
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+  scheduling {
+    preemptible = true
+  }
+
+  guest_accelerator {
+    type = "nvidia-tesla-t4" # <<<<<<<<<< Try changing this to nvidia-tesla-p4 to compare the costs
+    count = 4
+  }
+
+  labels = {
+    environment = "production"
+    service = "web-app"
   }
 }
 
-resource "aws_lambda_function" "my_hello_world" {
-  runtime = "nodejs12.x"
-  handler = "exports.test"
-  image_uri = "test"
-  function_name = "test"
-  role = "arn:aws:ec2:us-east-1:123123123123:instance/i-1231231231"
+resource "google_cloudfunctions_function" "my_function" {
+  runtime = "nodejs20"
+  name = "test"
+  available_memory_mb = 512
 
-  memory_size = 512
-  tags = {
-    Environment = "Prod"
+  labels = {
+    environment = "Prod"
   }
 }
