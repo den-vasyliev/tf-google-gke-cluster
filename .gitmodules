@@ -1,3 +1,0 @@
-[submodule ".terraform/modules/gke_auth"]
-    path = .terraform/modules/gke_auth
-    url = https://github.com/terraform-google-modules/terraform-google-kubernetes-engine/tree/v31.1.0/modules/auth
