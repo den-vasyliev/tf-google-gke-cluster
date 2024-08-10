@@ -1,6 +1,7 @@
 variable "GOOGLE_PROJECT" {
   type        = string
-  description = "GCP project name"
+  default     = ""
+  description = "GCP project to use"
 }
 
 variable "GOOGLE_REGION" {
