@@ -1,5 +1,6 @@
 provider "google" {
   # Configuration options
+
   project = var.GOOGLE_PROJECT
   region  = var.GOOGLE_REGION
 }
@@ -14,6 +15,7 @@ resource "google_container_cluster" "this" {
     workload_identity_config {
     workload_pool = "${var.GOOGLE_PROJECT}.svc.id.goog"
   }
+  
   node_config {
         workload_metadata_config {
       mode = "GKE_METADATA"
