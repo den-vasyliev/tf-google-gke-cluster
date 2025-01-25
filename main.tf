@@ -38,7 +38,7 @@ module "gke_auth" {
     google_container_cluster.this
   ]
   source       = "terraform-google-modules/kubernetes-engine/google//modules/auth"
-  version      = "33.0.4"
+  version      = "35.0.1"
   project_id   = var.GOOGLE_PROJECT
   cluster_name = google_container_cluster.this.name
   location     = var.GOOGLE_REGION
