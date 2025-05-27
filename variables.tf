@@ -1,5 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type        = string
+  default     = "mardukay-gke"
   description = "GCP project name"
 }
 
