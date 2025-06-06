@@ -32,3 +32,51 @@ variable "GKE_POOL_NAME" {
   default     = "main"
   description = "GKE pool name"
 }
+
+variable "ENABLE_COST_OPTIMIZATION" {
+  type        = bool
+  default     = true
+  description = "Enable cost optimization features"
+}
+
+variable "COST_OPTIMIZED_MACHINE_TYPE" {
+  type        = string
+  default     = "e2-small"
+  description = "Machine type for cost-optimized nodes"
+}
+
+variable "SPOT_MACHINE_TYPE" {
+  type        = string
+  default     = "e2-micro"
+  description = "Machine type for spot instances"
+}
+
+variable "MIN_COST_NODES" {
+  type        = number
+  default     = 1
+  description = "Minimum number of cost-optimized nodes"
+}
+
+variable "MAX_COST_NODES" {
+  type        = number
+  default     = 5
+  description = "Maximum number of cost-optimized nodes"
+}
+
+variable "ADDITIONAL_NODES" {
+  type        = number
+  default     = 2
+  description = "Number of additional nodes to add"
+}
+
+variable "ENABLE_AUTOSCALING" {
+  type        = bool
+  default     = true
+  description = "Enable autoscaling for node pools"
+}
+
+variable "MAX_NODES" {
+  type        = number
+  default     = 5
+  description = "Maximum number of nodes when autoscaling"
+}

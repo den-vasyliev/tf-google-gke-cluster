@@ -41,13 +41,64 @@ resource "google_container_node_pool" "this" {
   cluster    = google_container_cluster.this.name
   # Location (region)
   location   = google_container_cluster.this.location
-  # Number of nodes in the pool
-  node_count = var.GKE_NUM_NODES
+  
+  # Replace node_count with autoscaling
+  autoscaling {
+    min_node_count = var.GKE_NUM_NODES
+    max_node_count = var.GKE_NUM_NODES + 6  # Allow up to 3 additional nodes
+  }
 
   # Node configuration
   node_config {
     # Machine type for the nodes
     machine_type = var.GKE_MACHINE_TYPE
+    
+    # Enhanced configuration
+    disk_size_gb = 300
+    disk_type    = "pd-standard"
+    
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+    
+    labels = {
+      environment = "production"
+    }
+  }
+}
+
+# Add a new node pool with additional nodes
+resource "google_container_node_pool" "additional_nodes" {
+  # Name of the additional node pool
+  name       = "${var.GKE_POOL_NAME}-additional"
+  # GCP project to use (derived from the cluster)
+  project    = google_container_cluster.this.project
+  # Attach node pool to the created cluster
+  cluster    = google_container_cluster.this.name
+  # Location (region)
+  location   = google_container_cluster.this.location
+  # Number of additional nodes
+  node_count = 6
+
+  # Node configuration for additional nodes
+  node_config {
+    # Machine type for the nodes (can be different from main pool)
+    machine_type = var.COST_OPTIMIZED_MACHINE_TYPE
+    
+    # Cost optimization with preemptible instances
+    preemptible = true
+    
+    disk_size_gb = 200
+    disk_type    = "pd-standard"
+    
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+    
+    labels = {
+      pool-type = "additional"
+      cost-optimized = "true"
+    }
   }
 }
 
