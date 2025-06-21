@@ -14,7 +14,8 @@ resource "google_container_cluster" "this" {
   location = var.GOOGLE_REGION
 
   # Set initial node count (required, but will remove default pool)
-  initial_node_count       = 1
+cost-update
+  initial_node_count       = 2
   # Remove default node pool to use custom node pools instead
   remove_default_node_pool = true
 
