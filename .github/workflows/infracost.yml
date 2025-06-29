@@ -1,0 +1,38 @@
+name: Infracost CI/CD
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  infracost:
+    name: Infracost Breakdown
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.6.6
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform plan
+        run: terraform plan -out=tfplan.binary
+
+      - name: Generate JSON plan
+        run: terraform show -json tfplan.binary > plan.json
+
+      - name: Run Infracost
+        uses: infracost/actions@v2
+        with:
+          path: plan.json
+          format: github-comment
+          behavior: update
+        env:
+          INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
